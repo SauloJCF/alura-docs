@@ -12,9 +12,12 @@ selecionarDocumento(nomeDocumento);
 const textoEditor = document.getElementById("editor-texto");
 
 textoEditor.addEventListener("keyup", () => {
-  emitirTextoEditor(textoEditor.value);
+  emitirTextoEditor({
+    texto: textoEditor.value,
+    nomeDocumento
+  });
 });
 
 export const atualizaTextoEditor = (texto) => {
-    textoEditor.value = texto;
+  textoEditor.value = texto;
 }
