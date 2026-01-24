@@ -10,6 +10,7 @@ let documentosColecao;
 
 try {
   await cliente.connect();
+  
   const db = cliente.db("alura-websockets");
 
   documentosColecao = db.collection("documentos");

@@ -3,7 +3,6 @@ import url from "url";
 import path from "path";
 import http from "http";
 import { Server } from "socket.io";
-import 'dotenv/config';
 import './dbConnect.js';
 
 const app = express();
