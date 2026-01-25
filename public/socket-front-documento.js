@@ -2,14 +2,18 @@ import { atualizaTextoEditor } from "./documento.js";
 
 const socket = io();
 
-export const selecionarDocumento = (nome) => {
+function selecionarDocumento(nome) {
   socket.emit("selecionar_documento", nome, (texto) => {
     atualizaTextoEditor(texto);
   });
 }
 
-export const emitirTextoEditor = (dados) => {
+function emitirTextoEditor(dados) {
   socket.emit("texto_editor", dados);
+}
+
+function emitirExcluirDocumento(nomeDocumento) {
+  socket.emit("excluir_documento", nomeDocumento);
 }
 
 // socket.on("texto_documento", (texto) => {
@@ -24,3 +28,5 @@ socket.on("disconnect", (motivo) => {
   console.log(`Servidor desconectado!
   Motivo: ${motivo}`);
 });
+
+export { selecionarDocumento, emitirTextoEditor, emitirExcluirDocumento };

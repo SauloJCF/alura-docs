@@ -5,6 +5,7 @@ import {
   atualizaDocumento,
   encontrarDocumento,
   adicionarDocumento,
+  excluirDocumento,
 } from "./documentoDB.js";
 
 io.on("connection", (socket) => {
@@ -52,5 +53,11 @@ io.on("connection", (socket) => {
   socket.on("disconnect", (motivo) => {
     console.log(`Cliente "${socket.id}" desconectado!
     Motivo: ${motivo}`);
+  });
+
+  socket.on("excluir_documento", async (nomeDocumento) => {
+    const resultado = await excluirDocumento(nomeDocumento);
+
+    console.log(resultado);
   });
 });
