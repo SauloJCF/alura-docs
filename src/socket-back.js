@@ -1,14 +1,27 @@
 import "dotenv/config";
 import io from "./servidor.js";
-import { listarDocumentos, atualizaDocumento, encontrarDocumento } from "./documentoDB.js";
+import {
+  listarDocumentos,
+  atualizaDocumento,
+  encontrarDocumento,
+  adicionarDocumento,
+} from "./documentoDB.js";
 
 io.on("connection", (socket) => {
   console.log("Um cliente se conectou: " + socket.id);
 
-  socket.on("carregar_documentos", async(devolverLista) => {
+  socket.on("carregar_documentos", async (devolverLista) => {
     const documentos = await listarDocumentos();
-    
+
     devolverLista(documentos);
+  });
+
+  socket.on("adiciona_documento", async (nomeDocumento) => {
+    const resultado = await adicionarDocumento(nomeDocumento);
+
+    if (resultado.acknowledged) {
+      io.emit("adiciona_documento_interface", nomeDocumento);
+    }
   });
 
   socket.on("selecionar_documento", async (nomeDocumento, devolverTexto) => {
@@ -35,5 +48,3 @@ io.on("connection", (socket) => {
     Motivo: ${motivo}`);
   });
 });
-
-
