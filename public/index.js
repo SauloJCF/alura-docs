@@ -16,10 +16,17 @@ function adicionaDocumento(nomeDocumento) {
         <a
           href="documento.html?nome=${nomeDocumento}"
           class="list-group-item list-group-item-action"
+          id="documento-${nomeDocumento}"
         >
           ${nomeDocumento}
         </a>
     `;
 }
 
-export { adicionaDocumento };
+function removerDocumento(nomeDocumento) {
+ const documento = document.getElementById(`documento-${nomeDocumento}`);
+
+  listaDocumentos.removeChild(documento);
+}
+
+export { adicionaDocumento, removerDocumento };

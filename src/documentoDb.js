@@ -48,5 +48,5 @@ export {
   adicionarDocumento,
   encontrarDocumento,
   atualizaDocumento,
-  excluirDocumento,
+  excluirDocumento
 };
