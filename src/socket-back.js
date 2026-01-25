@@ -1,9 +1,15 @@
 import "dotenv/config";
 import io from "./servidor.js";
-import { atualizaDocumento, encontrarDocumento } from "./documentoDB.js";
+import { listarDocumentos, atualizaDocumento, encontrarDocumento } from "./documentoDB.js";
 
 io.on("connection", (socket) => {
   console.log("Um cliente se conectou: " + socket.id);
+
+  socket.on("carregar_documentos", async(devolverLista) => {
+    const documentos = await listarDocumentos();
+    
+    devolverLista(documentos);
+  });
 
   socket.on("selecionar_documento", async (nomeDocumento, devolverTexto) => {
     socket.join(nomeDocumento);
