@@ -6,18 +6,26 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/socket-back.js"
+    "dev": "nodemon servidor/socket-back.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonio-evaldo/alura-docs.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antonio-evaldo/alura-docs/issues"
+  },
+  "homepage": "https://github.com/antonio-evaldo/alura-docs#readme",
   "dependencies": {
     "dotenv": "^17.2.3",
-    "express": "^4.22.1",
+    "express": "^4.18.2",
     "mongodb": "4.11",
-    "socket.io": "^4.8.3"
+    "socket.io": "^4.5.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.20"
   }
 }

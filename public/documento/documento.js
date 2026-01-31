@@ -7,15 +7,13 @@ import {
 const parametros = new URLSearchParams(window.location.search);
 const nomeDocumento = parametros.get("nome");
 
+const textoEditor = document.getElementById("editor-texto");
 const tituloDocumento = document.getElementById("titulo-documento");
-
 const botaoExcluir = document.getElementById("excluir-documento");
 
 tituloDocumento.textContent = nomeDocumento || "Documento sem título";
 
 selecionarDocumento(nomeDocumento);
-
-const textoEditor = document.getElementById("editor-texto");
 
 textoEditor.addEventListener("keyup", () => {
   emitirTextoEditor({
@@ -24,13 +22,13 @@ textoEditor.addEventListener("keyup", () => {
   });
 });
 
-botaoExcluir.addEventListener("click", () => {
-  emitirExcluirDocumento(nomeDocumento);
-});
-
 function atualizaTextoEditor(texto) {
   textoEditor.value = texto;
 }
+
+botaoExcluir.addEventListener("click", () => {
+  emitirExcluirDocumento(nomeDocumento);
+});
 
 function alertarERedirecionar(nome) {
   if (nome === nomeDocumento) {
@@ -39,4 +37,4 @@ function alertarERedirecionar(nome) {
   }
 }
 
-export { alertarERedirecionar, atualizaTextoEditor };
+export { atualizaTextoEditor, alertarERedirecionar };
