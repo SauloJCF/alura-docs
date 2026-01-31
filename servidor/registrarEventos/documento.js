@@ -1,9 +1,7 @@
 import {
-    adicionarDocumento,
     atualizaDocumento,
     encontrarDocumento,
     excluirDocumento,
-    obterDocumentos,
 } from "../db/documentosDb.js";
 
 function registrarEventosDocumento(socket, io) {
