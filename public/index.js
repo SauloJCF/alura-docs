@@ -1,9 +1,5 @@
 import { emitirAdicionarDocumento } from "./socket-front-index.js";
-import { obterCookie, removerCookie } from "./utils/cookies.js";
-
-const tokenJWT = obterCookie("tokenJWT");
-
-console.log(tokenJWT);
+import { removerCookie } from "./utils/cookies.js";
 
 
 const listaDocumentos = document.getElementById("lista-documentos");
