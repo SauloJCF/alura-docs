@@ -1,5 +1,9 @@
 const conexoesDocumentos = [];
 
+function encontrarConexao(nomeDocumento, nomeUsuario) {
+    return conexoesDocumentos.find(conexao => conexao.nomeUsuario === nomeUsuario && conexao.nomeDocumento === nomeDocumento);
+}
+
 function adicionarConexao(conexao) {
     conexoesDocumentos.push(conexao);
 }
@@ -18,4 +22,4 @@ function removerConexao(nomeUsuario, nomeDocumento) {
     }
 }
 
-export { adicionarConexao, obterUsuariosDocumento, removerConexao };
+export { encontrarConexao, adicionarConexao, obterUsuariosDocumento, removerConexao };

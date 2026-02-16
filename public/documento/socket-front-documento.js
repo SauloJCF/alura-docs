@@ -11,6 +11,11 @@ socket.on("autorizacao_sucesso", tratarAutorizacaoSucesso);
 
 socket.on("usuarios_no_documento", atualizarListaUsuariosDocumento);
 
+socket.on("usuario_ja_no_documento", () => {
+  alert("O usuário já está conectado neste documento!");
+  window.location.href = "/";
+})
+
 socket.on("connect_error", (erro) => {
   alert(erro);
   window.location.href = "/login/index.html";
